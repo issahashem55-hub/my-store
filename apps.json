@@ -1,0 +1,69 @@
+{
+  "storeName": "متجر أبو الأكبر الجيسي",
+  "storeTagline": "تطبيقات حصرية من تطويري",
+  "apps": [
+    {
+      "id": "app-1",
+      "name": "تطبيق 1",
+      "description": "اكتب هنا وصفاً كاملاً للتطبيق: ما وظيفته، ولماذا يستخدمه الناس، وأهم ما يميزه عن غيره.",
+      "icon": "images/app-1.png",
+      "screenshots": [
+        "images/app-1-shot-1.png",
+        "images/app-1-shot-2.png",
+        "images/app-1-shot-3.png"
+      ],
+      "size": "00 MB",
+      "version": "1.0.0",
+      "rating": 4.8,
+      "category": "أدوات",
+      "features": [
+        "الميزة الأولى",
+        "الميزة الثانية",
+        "الميزة الثالثة"
+      ],
+      "mediafire": "",
+      "mega": ""
+    },
+    {
+      "id": "app-2",
+      "name": "تطبيق 2",
+      "description": "اكتب هنا وصفاً كاملاً للتطبيق: ما وظيفته، ولماذا يستخدمه الناس، وأهم ما يميزه عن غيره.",
+      "icon": "images/app-2.png",
+      "screenshots": [
+        "images/app-2-shot-1.png",
+        "images/app-2-shot-2.png"
+      ],
+      "size": "00 MB",
+      "version": "1.0.0",
+      "rating": 4.6,
+      "category": "ترفيه",
+      "features": [
+        "الميزة الأولى",
+        "الميزة الثانية"
+      ],
+      "mediafire": "",
+      "mega": ""
+    },
+    {
+      "id": "app-3",
+      "name": "تطبيق 3",
+      "description": "اكتب هنا وصفاً كاملاً للتطبيق: ما وظيفته، ولماذا يستخدمه الناس، وأهم ما يميزه عن غيره.",
+      "icon": "images/app-3.png",
+      "screenshots": [
+        "images/app-3-shot-1.png",
+        "images/app-3-shot-2.png"
+      ],
+      "size": "00 MB",
+      "version": "1.0.0",
+      "rating": 4.9,
+      "category": "تواصل",
+      "features": [
+        "الميزة الأولى",
+        "الميزة الثانية",
+        "الميزة الثالثة"
+      ],
+      "mediafire": "",
+      "mega": ""
+    }
+  ]
+}
