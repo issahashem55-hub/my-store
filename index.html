@@ -24,17 +24,37 @@ footer{margin-top:70px;padding:30px 0;border-top:1px solid var(--line);color:var
 @media(max-width:900px){.hero{grid-template-columns:1fr;text-align:center;padding-top:45px}.hero p{margin-inline:auto}.hero-buttons{justify-content:center}.hero-art{min-height:250px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.section-head{align-items:stretch;flex-direction:column}.search{width:100%}}
 @media(max-width:600px){.container{width:calc(100% - 20px)}.nav{min-height:66px}.brand-mark{width:39px;height:39px}.brand{font-size:14px}.nav-actions .ghost{display:none}.hero h1{font-size:clamp(32px,10vw,48px);letter-spacing:-1px}.hero p{font-size:13px}.hero-art{min-height:210px}.orb{width:220px}.section-head h2{font-size:23px}.grid{grid-template-columns:1fr;gap:13px}.card{padding:15px}.desc{min-height:auto}.card-bottom{display:grid;grid-template-columns:1fr 1fr}.modal{padding:18px;border-radius:22px}.detail-title{font-size:22px}.detail-icon{width:72px;height:72px}.download-row{display:grid;grid-template-columns:1fr}.footer-row{justify-content:center;text-align:center}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
-.install-banner{position:fixed;bottom:16px;left:12px;right:12px;z-index:45;display:none;align-items:center;gap:12px;padding:14px;border:1px solid #f5c76b55;border-radius:20px;background:#17131cf5;backdrop-filter:blur(20px);box-shadow:0 15px 55px #0009}.install-banner.show{display:flex}.install-copy{flex:1;min-width:0}.install-copy strong{display:block;font-size:14px}.install-copy p{margin:3px 0 0;color:#bdb8c8;font-size:11px}.install-banner button{border:0;border-radius:12px;padding:10px 12px;font-weight:800;white-space:nowrap}.install-now{background:var(--gold);color:#17100a}.install-later{background:#ffffff12;color:#fff;border:1px solid var(--line)!important}@media(max-width:420px){.install-banner{flex-wrap:wrap}.install-copy{flex-basis:100%}.install-banner button{flex:1}}\n</style>
+.install-banner{position:fixed;bottom:16px;left:12px;right:12px;z-index:45;display:none;align-items:center;gap:12px;padding:14px;border:1px solid #f5c76b55;border-radius:20px;background:#17131cf5;backdrop-filter:blur(20px);box-shadow:0 15px 55px #0009}.install-banner.show{display:flex}.install-copy{flex:1;min-width:0}.install-copy strong{display:block;font-size:14px}.install-copy p{margin:3px 0 0;color:#bdb8c8;font-size:11px}.install-banner button{border:0;border-radius:12px;padding:10px 12px;font-weight:800;white-space:nowrap}.install-now{background:var(--gold);color:#17100a}.install-later{background:#ffffff12;color:#fff;border:1px solid var(--line)!important}@media(max-width:420px){.install-banner{flex-wrap:wrap}.install-copy{flex-basis:100%}.install-banner button{flex:1}}\n
+/* PREMIUM V2 */
+:root{--gold2:#ffe3a0;--success:#69e6a4}
+body.light{--bg:#f5f6fa;--panel:#fff;--panel2:#eef0f6;--text:#17151b;--muted:#646778;--line:#17151b18;background:radial-gradient(circle at 85% 0%,#f5c76b44,transparent 32rem),#f5f6fa}
+body.light header{background:#ffffffd9}
+body.light .orb,body.light .profile-orbit{box-shadow:0 0 70px #b98b2d22}
+.profile-mini{overflow:hidden;padding:0!important;border-radius:50%!important;transform:none!important}
+.profile-mini img{width:100%;height:100%;object-fit:cover}
+.profile-orbit{width:min(390px,82vw);aspect-ratio:1;position:relative;display:grid;place-items:center;border-radius:50%;background:conic-gradient(from 20deg,#f5c76b,#8c5cff,#36a9ff,#f5c76b);padding:10px;box-shadow:0 0 90px #f5c76b22;animation:float 7s ease-in-out infinite}
+.profile-orbit:before{content:"";position:absolute;inset:18px;border:1px solid #ffffff66;border-radius:50%;box-shadow:0 0 35px #f5c76b55}
+.profile-main{width:100%;height:100%;object-fit:cover;object-position:center 38%;border-radius:50%;border:8px solid #09090d;position:relative;z-index:2}
+.profile-glow{position:absolute;inset:8%;border-radius:50%;background:#f5c76b;filter:blur(55px);opacity:.32}
+.orbit-chip{position:absolute;z-index:4;padding:8px 12px;border-radius:999px;background:#0b0b10dd;color:#fff;border:1px solid #ffffff33;font:800 10px Manrope,sans-serif;box-shadow:0 8px 25px #0004}
+.chip-one{top:12%;right:-2%}.chip-two{bottom:14%;left:-3%;color:#8affc0}
+.section-spark{color:var(--gold)}
+.search-wrap{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:16px;background:#ffffff08;padding:0 12px;min-width:min(100%,360px)}
+.search-wrap span{color:var(--gold);font-size:23px}.search-wrap .search{border:0!important;background:transparent!important;outline:0!important;min-width:0}.clear-search{border:0;background:transparent;color:var(--muted);font-size:22px}
+.quick-row{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 12px}.quick{border:1px solid var(--line);background:#ffffff08;color:var(--muted);padding:9px 14px;border-radius:999px;font-size:12px;font-weight:800}.quick.active{background:var(--gold);color:#17100a;border-color:transparent}
+.card{position:relative}.favorite-btn{position:absolute;top:15px;left:15px;border:1px solid var(--line);background:#ffffff0b;color:var(--gold);width:36px;height:36px;border-radius:50%;font-size:19px;z-index:2}.favorite-btn.active{background:#f5c76b;color:#17100a}.card-actions{display:flex;gap:8px;flex-wrap:wrap}.history-note{color:var(--muted);font-size:12px;margin-top:10px}.about-card{display:flex;justify-content:space-between;gap:24px;align-items:center}.about-badges{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}.about-badges span{border:1px solid var(--line);border-radius:999px;padding:8px 12px;color:var(--muted);font-size:12px}
+@media(max-width:700px){.hero{grid-template-columns:1fr;text-align:center}.hero p{margin-inline:auto}.hero-buttons{justify-content:center}.hero-art{min-height:290px}.nav-actions .ghost{display:none}.about-card{display:block}.about-badges{justify-content:flex-start;margin-top:18px}.section-head{align-items:stretch;flex-direction:column}.search-wrap{width:100%}}
+</style>
 </head>
 <body>
 <header><div class="container nav">
-<a class="brand" href="#"><span class="brand-mark">✦</span><span>متجر أبو الأكبر<small>تطبيقات حصرية من تطويري</small></span></a>
-<div class="nav-actions"><a class="ghost" href="#apps">استكشف التطبيقات</a><button class="icon-btn" id="musicBtn" aria-label="تشغيل الموسيقى">♫</button></div>
+<a class="brand" href="#" aria-label="العودة إلى الصفحة الرئيسية"><span class="brand-mark profile-mini"><img src="images/profile.png" alt="صورة أبو الأكبر"></span><span>متجر أبو الأكبر<small>تطبيقات حصرية من تطويري</small></span></a>
+<div class="nav-actions"><a class="ghost" href="#apps">استكشف التطبيقات</a><button class="icon-btn" id="themeBtn" aria-label="تبديل المظهر">☼</button><button class="icon-btn" id="favoritesBtn" aria-label="عرض المفضلة">♡ <span id="favCount">0</span></button><button class="icon-btn" id="musicBtn" aria-label="تشغيل الموسيقى">♫</button></div>
 </div></header>
 <main>
-<section class="container hero"><div><span class="eyebrow">✦ BLACK GOLD EDITION</span><h1>عالمك الرقمي<br><span class="gradient">بلمسة أبو الأكبر</span></h1><p>متجر عصري لتطبيقات مختارة بعناية، بتجربة سريعة، واجهة فاخرة، وتصميم يتكيف مع الموبايل والكمبيوتر.</p><div class="hero-buttons"><a class="primary" href="#apps">تصفح التطبيقات ↓</a><a class="ghost" href="#about">عن المتجر</a></div></div><div class="hero-art"><div class="orb" aria-label="هوية متجر أبو الأكبر"></div></div></section>
-<section class="container" id="apps"><div class="section-head"><div><h2>التطبيقات</h2><p id="countText">جاري تحميل التطبيقات...</p></div><input id="search" class="search" placeholder="ابحث عن تطبيق..." aria-label="البحث عن تطبيق"></div><div id="filters" class="filters"></div><div id="grid" class="grid"></div></section>
-<section class="container" id="about" style="margin-top:55px"><div class="card"><h2 style="margin-top:0">تجربة مصممة للموبايل 📱</h2><p style="color:var(--muted);line-height:2;margin-bottom:0">واجهة متجاوبة، أزرار مريحة للمس، بطاقات ثلاثية الأبعاد خفيفة، بحث سريع، وصفحة تفاصيل لكل تطبيق — مع إبقاء بيانات التطبيقات وروابط التحميل داخل <b>apps.json</b> دون تغيير.</p></div></section>
+<section class="container hero"><div><span class="eyebrow">✦ BLACK GOLD EDITION</span><h1>عالمك الرقمي<br><span class="gradient">بلمسة أبو الأكبر</span></h1><p>متجر عصري لتطبيقات مختارة بعناية، بتجربة سريعة، واجهة فاخرة، وتصميم يتكيف مع الموبايل والكمبيوتر.</p><div class="hero-buttons"><a class="primary" href="#apps">تصفح التطبيقات ↓</a><a class="ghost" href="#about">عن المتجر</a></div></div><div class="hero-art"><div class="profile-orbit"><div class="profile-glow"></div><img class="profile-main" src="images/profile.png" alt="صورة أبو الأكبر الشخصية"><span class="orbit-chip chip-one">✦ PREMIUM</span><span class="orbit-chip chip-two">● ONLINE</span></div></div></section>
+<section class="container" id="apps"><div class="section-head"><div><h2>التطبيقات <span class="section-spark">✦</span></h2><p id="countText">جاري تحميل التطبيقات...</p></div><div class="search-wrap"><span>⌕</span><input id="search" class="search" placeholder="ابحث بالاسم أو الوصف أو التصنيف..." aria-label="البحث عن تطبيق"><button id="clearSearch" class="clear-search" aria-label="مسح البحث">×</button></div></div><div class="quick-row"><button class="quick active" data-view="all">الكل</button><button class="quick" data-view="new">الأحدث</button><button class="quick" data-view="fav">المفضلة <span id="favCount2">0</span></button><button class="quick" data-view="history">سجل التحميلات</button></div><div id="filters" class="filters"></div><div id="grid" class="grid"></div></section>
+<section class="container" id="about" style="margin-top:55px"><div class="card about-card"><div><span class="eyebrow">ABOUT THE STORE</span><h2 style="margin:14px 0 8px">متجر أبو الأكبر الجيسي</h2><p style="color:var(--muted);line-height:2;margin:0">منصة تطبيقات عربية بواجهة فاخرة وسريعة، تجمع التطبيقات في تجربة بسيطة ومريحة مع دعم المفضلة، المشاركة، سجل التحميلات والوضعين الليلي والنهاري.</p></div><div class="about-badges"><span>⚡ سريع</span><span>🛡️ واضح</span><span>📱 متجاوب</span><span>✦ Premium</span></div></div></section>
 </main>
 <footer><div class="container footer-row"><span>© <span id="year"></span> متجر أبو الأكبر الجيسي</span><span>صُنع بشغف ✦</span></div></footer>
 <div class="modal-wrap" id="modalWrap" role="dialog" aria-modal="true" aria-label="تفاصيل التطبيق"><div class="modal" id="modal"></div></div>
@@ -48,10 +68,35 @@ const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&
 function toast(t){$("#toast").textContent=t;$("#toast").style.display="block";setTimeout(()=>$("#toast").style.display="none",2600)}
 function categories(){return ["الكل",...new Set(apps.map(a=>a.category).filter(Boolean))]}
 function renderFilters(){filters.innerHTML=categories().map(c=>`<button class="filter ${c===active?"active":""}" data-cat="${esc(c)}">${esc(c)}</button>`).join("");filters.querySelectorAll("button").forEach(b=>b.onclick=()=>{active=b.dataset.cat;renderFilters();render()})}
-function render(){let q=$("#search").value.trim().toLowerCase();let list=apps.filter(a=>(active==="الكل"||a.category===active)&&(`${a.name} ${a.description} ${a.category}`.toLowerCase().includes(q)));$("#countText").textContent=`${list.length} تطبيق متاح`;grid.innerHTML=list.length?list.map(a=>`<article class="card"><div class="app-top"><img class="app-icon" src="${esc(a.icon)}" alt="" onerror="this.style.visibility='hidden'"><div><h3 class="app-name">${esc(a.name)}</h3><div class="meta">${esc(a.category||"عام")} • الإصدار ${esc(a.version||"—")}</div><div class="meta">★ ${esc(a.rating||"—")} • ${esc(a.size||"—")}</div></div></div><p class="desc">${esc(a.description)}</p><div class="tags">${(a.features||[]).slice(0,3).map(f=>`<span class="tag">${esc(f)}</span>`).join("")}</div><div class="card-bottom"><button class="primary" data-open="${esc(a.id)}">التفاصيل</button><button class="ghost download-btn" data-download="${esc(a.id)}">تحميل ↗</button></div></article>`).join(""):`<div class="empty">لا توجد نتائج مطابقة للبحث.</div>`;grid.querySelectorAll("[data-open]").forEach(b=>b.onclick=()=>openDetails(b.dataset.open));
-grid.querySelectorAll("[data-download]").forEach(b=>b.onclick=()=>startDownload(b.dataset.download,b.dataset.source));
+function isFav(id){return JSON.parse(localStorage.getItem("abuFavs")||"[]").includes(id)}
+function favs(){return JSON.parse(localStorage.getItem("abuFavs")||"[]")}
+function saveFavs(v){localStorage.setItem("abuFavs",JSON.stringify(v));updateFavCount()}
+function toggleFav(id){let v=favs();v=v.includes(id)?v.filter(x=>x!==id):[...v,id];saveFavs(v);render();toast(v.includes(id)?"تمت الإضافة إلى المفضلة ❤️":"تمت الإزالة من المفضلة")}
+function updateFavCount(){let n=favs().length;$("#favCount").textContent=n;$("#favCount2").textContent=n}
+let viewMode="all";
+function render(){
+ let q=$("#search").value.trim().toLowerCase();
+ let list=apps.filter(a=>(active==="الكل"||a.category===active)&&(`${a.name} ${a.description} ${a.category} ${(a.features||[]).join(" ")}`.toLowerCase().includes(q)));
+ if(viewMode==="new")list=[...list].sort((a,b)=>String(b.updated||b.date||"").localeCompare(String(a.updated||a.date||"")));
+ if(viewMode==="fav")list=list.filter(a=>isFav(a.id));
+ if(viewMode==="history"){let h=JSON.parse(localStorage.getItem("abuHistory")||"[]");list=list.filter(a=>h.includes(a.id));}
+ $("#countText").textContent=`${list.length} تطبيق متاح`;
+ grid.innerHTML=list.length?list.map(a=>`<article class="card"><button class="favorite-btn ${isFav(a.id)?"active":""}" data-fav="${esc(a.id)}" aria-label="المفضلة">${isFav(a.id)?"♥":"♡"}</button><div class="app-top"><img class="app-icon" src="${esc(a.icon)}" alt="${esc(a.name)}" loading="lazy" onerror="this.style.visibility='hidden'"><div><h3 class="app-name">${esc(a.name)}</h3><div class="meta">${esc(a.category||"عام")} • الإصدار ${esc(a.version||"—")}</div><div class="meta">★ ${esc(a.rating||"—")} • ${esc(a.size||"—")}</div></div></div><p class="desc">${esc(a.description)}</p><div class="tags">${(a.features||[]).slice(0,3).map(f=>`<span class="tag">${esc(f)}</span>`).join("")}</div><div class="card-bottom"><button class="primary" data-open="${esc(a.id)}">التفاصيل</button><button class="ghost download-btn" data-download="${esc(a.id)}">تحميل ↗</button></div></article>`).join(""):`<div class="empty">لا توجد نتائج مطابقة. جرّب كلمة أخرى أو غيّر التصنيف.</div>`;
+ grid.querySelectorAll("[data-open]").forEach(b=>b.onclick=()=>openDetails(b.dataset.open));
+ grid.querySelectorAll("[data-download]").forEach(b=>b.onclick=()=>startDownload(b.dataset.download,b.dataset.source));
+ grid.querySelectorAll("[data-fav]").forEach(b=>b.onclick=()=>toggleFav(b.dataset.fav));
+ updateFavCount();
 }
-function openDetails(id){let a=apps.find(x=>x.id===id);if(!a)return;modal.innerHTML=`<div class="modal-head"><div class="app-top"><img class="detail-icon" src="${esc(a.icon)}" alt=""><div><h2 class="detail-title">${esc(a.name)}</h2><div class="meta">${esc(a.category||"عام")} • ${esc(a.version||"—")} • ★ ${esc(a.rating||"—")}</div></div></div><button class="close" id="closeModal">✕</button></div><p class="detail-desc">${esc(a.description)}</p>${(a.screenshots||[]).length?`<div class="shots">${a.screenshots.map(s=>`<img src="${esc(s)}" alt="لقطة شاشة من ${esc(a.name)}" loading="lazy">`).join("")}</div>`:""}<h3>المميزات</h3><ul class="features">${(a.features||[]).map(f=>`<li>✓ ${esc(f)}</li>`).join("")}</ul><div class="download-row">${a.mediafire?`<button class="primary download-btn" data-download="${esc(a.id)}" data-source="mediafire">MediaFire ↗</button>`:""}${a.mega?`<button class="primary download-btn" data-download="${esc(a.id)}" data-source="mega">MEGA ↗</button>`:""}${!a.mediafire&&!a.mega?`<span class="ghost" style="text-align:center">رابط التحميل غير مضاف بعد</span>`:""}</div>`;modalWrap.classList.add("open");$("#closeModal").onclick=closeModal;modal.querySelectorAll("[data-download]").forEach(b=>b.onclick=()=>startDownload(b.dataset.download,b.dataset.source))}
+
+function openDetails(id){
+ let a=apps.find(x=>x.id===id);if(!a)return;
+ modal.innerHTML=`<div class="modal-head"><div class="app-top"><img class="detail-icon" src="${esc(a.icon)}" alt=""><div><h2 class="detail-title">${esc(a.name)}</h2><div class="meta">${esc(a.category||"عام")} • ${esc(a.version||"—")} • ★ ${esc(a.rating||"—")}</div></div></div><button class="close" id="closeModal">✕</button></div><p class="detail-desc">${esc(a.description)}</p>${(a.screenshots||[]).length?`<div class="shots">${a.screenshots.map(s=>`<img src="${esc(s)}" alt="لقطة شاشة من ${esc(a.name)}" loading="lazy">`).join("")}</div>`:""}<h3>المميزات</h3><ul class="features">${(a.features||[]).map(f=>`<li>✓ ${esc(f)}</li>`).join("")}</ul><div class="download-row">${a.mediafire?`<button class="primary download-btn" data-download="${esc(a.id)}" data-source="mediafire">MediaFire ↗</button>`:""}${a.mega?`<button class="primary download-btn" data-download="${esc(a.id)}" data-source="mega">MEGA ↗</button>`:""}${!a.mediafire&&!a.mega?`<span class="ghost" style="text-align:center">رابط التحميل غير مضاف بعد</span>`:""}</div><div class="download-row" style="margin-top:12px"><button class="ghost" id="detailFav">${isFav(a.id)?"♥ إزالة من المفضلة":"♡ إضافة للمفضلة"}</button><button class="ghost" id="shareApp">مشاركة التطبيق ↗</button></div>`;
+ modalWrap.classList.add("open");$("#closeModal").onclick=closeModal;
+ modal.querySelectorAll("[data-download]").forEach(b=>b.onclick=()=>startDownload(b.dataset.download,b.dataset.source));
+ $("#detailFav").onclick=()=>{toggleFav(a.id);openDetails(a.id)};
+ $("#shareApp").onclick=async()=>{let url=location.href.split("#")[0]+"?app="+encodeURIComponent(a.id);try{if(navigator.share)await navigator.share({title:a.name,text:a.description,url});else{await navigator.clipboard.writeText(url);toast("تم نسخ رابط التطبيق")} }catch{}};
+}
+
 function startDownload(id,source){
  const a=apps.find(x=>x.id===id); if(!a)return;
  const url=source==="mega"?a.mega:(source==="mediafire"?a.mediafire:(a.mediafire||a.mega));
@@ -68,7 +113,25 @@ function closeModal(){modalWrap.classList.remove("open")}
 modalWrap.addEventListener("click",e=>{if(e.target===modalWrap)closeModal()});document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal()});
 $("#search").addEventListener("input",render);$("#year").textContent=new Date().getFullYear();
 $("#musicBtn").onclick=async()=>{let m=$("#music");try{if(m.paused){await m.play();$("#musicBtn").textContent="Ⅱ"}else{m.pause();$("#musicBtn").textContent="♫"}}catch{toast("أضف ملف hashem.mp3 بجانب index.html أولاً")}};
-fetch("apps.json").then(r=>{if(!r.ok)throw Error();return r.json()}).then(d=>{apps=Array.isArray(d)?d:(d.apps||[]);if(d.storeName)document.title=d.storeName;renderFilters();render()}).catch(()=>{$("#countText").textContent="تعذر تحميل apps.json";grid.innerHTML='<div class="empty">تأكد أن ملف apps.json موجود بجانب index.html.</div>'});
+
+// Local preferences and navigation
+(function(){
+ const saved=localStorage.getItem("abuTheme");if(saved==="light")document.body.classList.add("light");
+ $("#themeBtn").onclick=()=>{document.body.classList.toggle("light");localStorage.setItem("abuTheme",document.body.classList.contains("light")?"light":"dark");$("#themeBtn").textContent=document.body.classList.contains("light")?"☾":"☼"};
+ $("#clearSearch").onclick=()=>{$("#search").value="";render()};
+ $("#favoritesBtn").onclick=()=>{viewMode="fav";document.querySelectorAll(".quick").forEach(x=>x.classList.toggle("active",x.dataset.view==="fav"));render();location.hash="apps"};
+ document.querySelectorAll(".quick").forEach(b=>b.onclick=()=>{viewMode=b.dataset.view;document.querySelectorAll(".quick").forEach(x=>x.classList.toggle("active",x===b));render()});
+ const oldStartDownload=startDownload;
+ window.startDownload=function(id,source){
+   let h=JSON.parse(localStorage.getItem("abuHistory")||"[]");
+   h=[id,...h.filter(x=>x!==id)].slice(0,20);localStorage.setItem("abuHistory",JSON.stringify(h));
+   oldStartDownload(id,source);
+ };
+ const params=new URLSearchParams(location.search);const requested=params.get("app");
+ if(requested)window.__requestedApp=requested;
+})();
+
+fetch("apps.json").then(r=>{if(!r.ok)throw Error();return r.json()}).then(d=>{apps=Array.isArray(d)?d:(d.apps||[]);if(d.storeName)document.title=d.storeName;renderFilters();render();if(window.__requestedApp)openDetails(window.__requestedApp)}).catch(()=>{$("#countText").textContent="تعذر تحميل apps.json";grid.innerHTML='<div class="empty">تأكد أن ملف apps.json موجود بجانب index.html.</div>'});
 </script>
 </body>
 </html>
