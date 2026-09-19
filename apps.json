@@ -4,44 +4,46 @@
   "apps": [
     {
       "id": "app-1",
-      "name": "TikTok unlocked",
-      "description": "تيك توك ضد الحظر يعمل في جميع الدول بدون في بي ان وفي بعض الاجهزه قد يحتاج التطبيق الى في بي ان ",
-      "icon": "images/tiktok+.png",
+      "name": "Insta Gold",
+      "description": "افضل نسخة انستا تعمل على جميع الأجهزة وبدون مشاكل واخطاء يمكنك اكتشاف جميع الميزات",
+      "icon": "images/instagold.png",
       "screenshots": [
-        "images/icont1.png",
-        "images/icont2.png",
-        "images/app-1-shot-3.png"
+        "images/insta1.png",
+        "images/insta2.png",
+        "images/insta3.png"
       ],
       "size": "512 MB",
       "version": "46.1.3",
       "rating": 4.8,
-      "category": "أدوات",
+      "category": "تواصل",
       "features": [
-        "الميزة الأولى",
-        "الميزة الثانية",
-        "الميزة الثالثة"
+        "يمكنك تنزيل الصور والفيديوهات بسرعه عاليه وبدون علامه مائيه",
+        "يمكنك تغيير الخطوط والثيمات والايموجي مع خاصية Gallery glass",
+        "التطبيق امن تماما من كافة المشاكل وخالي من الفيروسات ويعمل على جميع الأجهزة             مع تحيات المطور أبو الأكبر (هاشم العيسى) "
       ],
-      "mediafire": "https://www.mediafire.com/file/2l30u22qswum1v7/TikTok%252B_42.7.2.apk/file",
+      "mediafire": "https://www.mediafire.com/file/30cqywzq5ac5a5l/InstaGold_439.0.0.37.89.apk/file",
       "mega": ""
     },
     {
       "id": "app-2",
-      "name": "تطبيق 2",
-      "description": "اكتب هنا وصفاً كاملاً للتطبيق: ما وظيفته، ولماذا يستخدمه الناس، وأهم ما يميزه عن غيره.",
-      "icon": "images/app-2.png",
+      "name": "تيك توك بلاك",
+      "description": " افضل نسخه تيك توك على الاطلاق تعمل على جميع الاجهزه وتعمل في سوريا وفي الدول المحظوره وفي جميع الدول ومن مميزات هذه النسخه انها تدعم تغيير المنطقه وتغيير نوع الهاتف من داخل النسخه ولا تحتاج تطبيقات خارجيه ابدا ولكن في بعض الاجهزه او في بعض المناطق قد تحتاج النسخه الى vpn وهذا امر مؤقت نعمل على اصلاح هذه المشكله.",
+      "icon": "images/icons1",
       "screenshots": [
-        "images/app-2-shot-1.png",
-        "images/app-2-shot-2.png"
+        "images/shots1.png",
+        "images/shots2.png"
+        "images/shots3.png"
+        "images/shots4.png"
       ],
-      "size": "00 MB",
-      "version": "1.0.0",
+      "size": "451 MB",
+      "version": "46.2.3",
       "rating": 4.6,
-      "category": "ترفيه",
+      "category": "تواصل",
       "features": [
-        "الميزة الأولى",
-        "الميزة الثانية"
+        "يعمل في سوريا وفي جميع الدول",
+        "يمكنك تغيير البلد ونوع الهاتف من داخل التطبيق والكثير من المميزات الاخره المطور أبو الأكبر(هاشم العيسى)"
       ],
-      "mediafire": "",
+      "mediafire": "https://www.mediafire.com/file/z8i7wwya3m5pmwk/%255BRoot-Device.com%255D_MN-TikTok_v46.2.3_Fixed.apk/file",
       "mega": ""
     },
     {
