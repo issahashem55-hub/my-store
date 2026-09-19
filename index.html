@@ -57,7 +57,7 @@ footer{padding:35px 0 70px;border-top:1px solid var(--line);color:var(--muted);t
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 html.midnight{--bg:#050916;--panel:rgba(12,20,40,.78);--panel2:rgba(100,150,255,.07);--gold:#7eb6ff;--gold2:#d8e9ff}html.crimson{--bg:#0b0507;--panel:rgba(30,10,16,.78);--panel2:rgba(255,70,100,.06);--gold:#ff6680;--gold2:#ffd1d9}
 
-/* Cinematic 10-second intro */
+/* Cinematic 5-second intro */
 #introScreen{position:fixed;inset:0;z-index:9999;background:#050507;overflow:hidden;display:grid;place-items:center;transition:opacity .9s cubic-bezier(.2,.75,.2,1),visibility .9s}
 #introScreen.hide{opacity:0;visibility:hidden;pointer-events:none}
 .intro-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#050507}
@@ -80,7 +80,7 @@ html.midnight{--bg:#050916;--panel:rgba(12,20,40,.78);--panel2:rgba(100,150,255,
 </head>
 <body>
 
-<!-- Cinematic 10-second intro -->
+<!-- Cinematic 5-second intro -->
 <div id="introScreen" role="dialog" aria-label="مقدمة المتجر">
   <video class="intro-video" id="introVideo" autoplay muted playsinline preload="auto" poster="images/profile.png">
     <source src="videos/intro.mp4" type="video/mp4">
@@ -90,7 +90,7 @@ html.midnight{--bg:#050916;--panel:rgba(12,20,40,.78);--panel2:rgba(100,150,255,
   <div class="intro-ui">
     <div class="intro-brand">✨ <b>متجر أبو الأكبر الجيسي</b> · Premium App Store</div>
     <div class="intro-bottom">
-      <div class="intro-count"><span id="introSeconds">10<small>ثواني</small></span></div>
+      <div class="intro-count"><span id="introSeconds">5<small>ثواني</small></span></div>
       <div class="intro-progress"><span id="introProgress"></span></div>
       <div class="intro-hint">سيتم الدخول إلى المتجر تلقائيًا</div>
     </div>
@@ -199,26 +199,45 @@ html.midnight{--bg:#050916;--panel:rgba(12,20,40,.78);--panel2:rgba(100,150,255,
 
 <script>
 
-// 10-second cinematic intro
+// 5-second cinematic intro — independent timer, so it cannot get stuck waiting for video loading
 (function(){
- const screen=$("#introScreen"), video=$("#introVideo"), skip=$("#introSkip"), seconds=$("#introSeconds"), progress=$("#introProgress");
- let done=false, started=Date.now(), timer;
+ const screen=document.getElementById("introScreen");
+ const video=document.getElementById("introVideo");
+ const skip=document.getElementById("introSkip");
+ const seconds=document.getElementById("introSeconds");
+ const progress=document.getElementById("introProgress");
+ const DURATION=5000;
+ let done=false;
+ const started=performance.now();
  document.body.style.overflow="hidden";
+
  const finish=()=>{
-   if(done)return; done=true; clearInterval(timer);
-   document.body.style.overflow=""; screen.classList.add("hide");
-   setTimeout(()=>screen.remove(),950);
+   if(done)return;
+   done=true;
+   document.body.style.overflow="";
+   if(video){try{video.pause();}catch{}}
+   screen.classList.add("hide");
+   window.setTimeout(()=>{if(screen.isConnected)screen.remove();},950);
  };
- const tick=()=>{
-   const elapsed=Math.min(10000,Date.now()-started), remain=Math.max(0,Math.ceil((10000-elapsed)/1000));
-   seconds.innerHTML=remain+'<small>ثواني</small>'; progress.style.width=(elapsed/10000*100)+"%";
-   if(elapsed>=10000)finish();
+
+ const tick=(now)=>{
+   if(done)return;
+   const elapsed=Math.min(DURATION,Math.max(0,now-started));
+   const remain=Math.max(0,Math.ceil((DURATION-elapsed)/1000));
+   seconds.innerHTML=remain+'<small>ثواني</small>';
+   progress.style.width=((elapsed/DURATION)*100)+"%";
+   if(elapsed>=DURATION){finish();return;}
+   requestAnimationFrame(tick);
  };
- const begin=()=>{started=Date.now();timer=setInterval(tick,100);tick();video.play().catch(()=>{});};
+
  skip.addEventListener("click",finish);
- video.addEventListener("ended",()=>setTimeout(finish,80));
- if(video.readyState>=2)begin();else video.addEventListener("loadeddata",begin,{once:true});
- setTimeout(()=>{if(!done && !timer)begin()},900);
+ video.addEventListener("ended",finish,{once:true});
+ requestAnimationFrame(tick);
+
+ // Autoplay is attempted, but the timer never depends on successful playback.
+ const playVideo=()=>video.play().catch(()=>{});
+ if(video.readyState>=2)playVideo();
+ else video.addEventListener("loadeddata",playVideo,{once:true});
 })();
 
 const $=s=>document.querySelector(s);
@@ -296,7 +315,7 @@ function tilt(){if(matchMedia("(pointer:fine)").matches){document.querySelectorA
 async function init(){
  try{
   $("#grid").innerHTML=Array.from({length:2},()=>'<div class="skeleton"></div>').join("");
-  const r=await fetch("./apps.json?v=final4",{cache:"no-store"});if(!r.ok)throw Error("HTTP "+r.status);
+  const r=await fetch("./apps.json?v=final5",{cache:"no-store"});if(!r.ok)throw Error("HTTP "+r.status);
   const d=await r.json();apps=(Array.isArray(d)?d:(d.apps||[])).map(normalize);
   $("#heroCount").textContent=apps.length;$("#statApps").textContent=apps.length;$("#statCats").textContent=new Set(apps.map(a=>a.category)).size;$("#statFav").textContent=favs().length;
   renderFilters();render();renderRecent();tilt();observeReveals();
@@ -306,7 +325,7 @@ let installEvent;
 window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();installEvent=e;setTimeout(()=>$("#installBox").classList.add("show"),1800)});
 $("#installBtn").onclick=async()=>{if(installEvent){installEvent.prompt();await installEvent.userChoice;installEvent=null}$("#installBox").classList.remove("show")};
 $("#laterBtn").onclick=()=>$("#installBox").classList.remove("show");
-if("serviceWorker"in navigator)navigator.serviceWorker.register("./sw.js?v=final4",{updateViaCache:"none"}).catch(()=>{});
+if("serviceWorker"in navigator)navigator.serviceWorker.register("./sw.js?v=final5",{updateViaCache:"none"}).catch(()=>{});
 init();
 </script>
 </body>

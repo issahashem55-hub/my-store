@@ -1,5 +1,5 @@
-const CACHE="abu-akbar-premium-v4-intro";
-const CORE=["./","./index.html","./apps.json","./manifest.json","./images/app-icon-192.png","./images/app-icon-512.png","./images/profile.png","./videos/intro.mp4"];
+const CACHE="abu-akbar-premium-v5-intro";
+const CORE=["./","./index.html","./apps.json","./manifest.json","./images/app-icon-192.png","./images/app-icon-512.png","./images/profile.png","./videos/intro.mp4","./videos/intro-desktop.mp4"];
 self.addEventListener("install",e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting())));
 self.addEventListener("activate",e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
 self.addEventListener("fetch",e=>{
