@@ -45,7 +45,7 @@ body.light .orb,body.light .profile-orbit{box-shadow:0 0 70px #b98b2d22}
 .card{position:relative}.favorite-btn{position:absolute;top:15px;left:15px;border:1px solid var(--line);background:#ffffff0b;color:var(--gold);width:36px;height:36px;border-radius:50%;font-size:19px;z-index:2}.favorite-btn.active{background:#f5c76b;color:#17100a}.card-actions{display:flex;gap:8px;flex-wrap:wrap}.history-note{color:var(--muted);font-size:12px;margin-top:10px}.about-card{display:flex;justify-content:space-between;gap:24px;align-items:center}.about-badges{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}.about-badges span{border:1px solid var(--line);border-radius:999px;padding:8px 12px;color:var(--muted);font-size:12px}
 @media(max-width:700px){.hero{grid-template-columns:1fr;text-align:center}.hero p{margin-inline:auto}.hero-buttons{justify-content:center}.hero-art{min-height:290px}.nav-actions .ghost{display:none}.about-card{display:block}.about-badges{justify-content:flex-start;margin-top:18px}.section-head{align-items:stretch;flex-direction:column}.search-wrap{width:100%}}
 </style>
-</head>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("./sw.js?v=final3",{updateViaCache:"none"}).catch(()=>{});}</script></head>
 <body>
 <header><div class="container nav">
 <a class="brand" href="#" aria-label="العودة إلى الصفحة الرئيسية"><span class="brand-mark profile-mini"><img src="images/profile.png" alt="صورة أبو الأكبر"></span><span>متجر أبو الأكبر<small>تطبيقات حصرية من تطويري</small></span></a>
@@ -81,7 +81,7 @@ function render(){
  if(viewMode==="fav")list=list.filter(a=>isFav(a.id));
  if(viewMode==="history"){let h=JSON.parse(localStorage.getItem("abuHistory")||"[]");list=list.filter(a=>h.includes(a.id));}
  $("#countText").textContent=`${list.length} تطبيق متاح`;
- grid.innerHTML=list.length?list.map(a=>`<article class="card"><button class="favorite-btn ${isFav(a.id)?"active":""}" data-fav="${esc(a.id)}" aria-label="المفضلة">${isFav(a.id)?"♥":"♡"}</button><div class="app-top"><img class="app-icon" src="${esc(a.icon)}" alt="${esc(a.name)}" loading="lazy" onerror="this.style.visibility='hidden'"><div><h3 class="app-name">${esc(a.name)}</h3><div class="meta">${esc(a.category||"عام")} • الإصدار ${esc(a.version||"—")}</div><div class="meta">★ ${esc(a.rating||"—")} • ${esc(a.size||"—")}</div></div></div><p class="desc">${esc(a.description)}</p><div class="tags">${(a.features||[]).slice(0,3).map(f=>`<span class="tag">${esc(f)}</span>`).join("")}</div><div class="card-bottom"><button class="primary" data-open="${esc(a.id)}">التفاصيل</button><button class="ghost download-btn" data-download="${esc(a.id)}">تحميل ↗</button></div></article>`).join(""):`<div class="empty">لا توجد نتائج مطابقة. جرّب كلمة أخرى أو غيّر التصنيف.</div>`;
+ grid.innerHTML=list.length?list.map(a=>`<article class="card"><button class="favorite-btn ${isFav(a.id)?"active":""}" data-fav="${esc(a.id)}" aria-label="المفضلة">${isFav(a.id)?"♥":"♡"}</button><div class="app-top"><img class="app-icon" src="${esc(a.icon)}" alt="${esc(a.name)}" loading="lazy" onerror="this.onerror=null;this.src='images/app-icon-192.png'"><div><h3 class="app-name">${esc(a.name)}</h3><div class="meta">${esc(a.category||"عام")} • الإصدار ${esc(a.version||"—")}</div><div class="meta">★ ${esc(a.rating||"—")} • ${esc(a.size||"—")}</div></div></div><p class="desc">${esc(a.description)}</p><div class="tags">${(a.features||[]).slice(0,3).map(f=>`<span class="tag">${esc(f)}</span>`).join("")}</div><div class="card-bottom"><button class="primary" data-open="${esc(a.id)}">التفاصيل</button><button class="ghost download-btn" data-download="${esc(a.id)}">تحميل ↗</button></div></article>`).join(""):`<div class="empty">لا توجد نتائج مطابقة. جرّب كلمة أخرى أو غيّر التصنيف.</div>`;
  grid.querySelectorAll("[data-open]").forEach(b=>b.onclick=()=>openDetails(b.dataset.open));
  grid.querySelectorAll("[data-download]").forEach(b=>b.onclick=()=>startDownload(b.dataset.download,b.dataset.source));
  grid.querySelectorAll("[data-fav]").forEach(b=>b.onclick=()=>toggleFav(b.dataset.fav));
@@ -131,7 +131,7 @@ $("#musicBtn").onclick=async()=>{let m=$("#music");try{if(m.paused){await m.play
  if(requested)window.__requestedApp=requested;
 })();
 
-fetch("apps.json").then(r=>{if(!r.ok)throw Error();return r.json()}).then(d=>{apps=Array.isArray(d)?d:(d.apps||[]);if(d.storeName)document.title=d.storeName;renderFilters();render();if(window.__requestedApp)openDetails(window.__requestedApp)}).catch(()=>{$("#countText").textContent="تعذر تحميل apps.json";grid.innerHTML='<div class="empty">تأكد أن ملف apps.json موجود بجانب index.html.</div>'});
+fetch("./apps.json?v=final3",{cache:"no-store"}).then(r=>{if(!r.ok)throw Error("HTTP "+r.status);return r.json()}).then(d=>{apps=Array.isArray(d)?d:(d.apps||[]);if(d.storeName)document.title=d.storeName;renderFilters();render();if(window.__requestedApp)openDetails(window.__requestedApp)}).catch(()=>{$("#countText").textContent="تعذر تحميل apps.json";grid.innerHTML='<div class="empty">تأكد أن ملف apps.json موجود بجانب index.html.</div>'});
 </script>
 </body>
 </html>
