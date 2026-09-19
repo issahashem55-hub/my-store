@@ -1,20 +1,5 @@
-# متجر أبو الأكبر الجيسي — FINAL READY
+# متجر أبو الأكبر الجيسي — Premium V3
+ارفع محتويات هذا المجلد مباشرة إلى جذر GitHub Pages.
+الملفات: index.html, apps.json, manifest.json, sw.js, images/
 
-هذه النسخة مبنية من ملف متجر1.zip الذي أرسلته، مع الحفاظ على جميع الأيقونات والصور الموجودة داخله.
-
-ارفع محتويات هذا المجلد مباشرة إلى جذر GitHub Pages:
-- index.html
-- apps.json
-- manifest.json
-- sw.js
-- README.md
-- images/
-
-مهم: لا تضع مجلدًا إضافيًا فوق هذه الملفات.
-
-تم إصلاح:
-- بنية ومسارات الملفات.
-- تحميل apps.json مع cache-busting.
-- Service Worker والكاش القديم.
-- fallback لأيقونات التطبيقات.
-- الحفاظ على جميع الصور والأيقونات الأصلية.
+المزايا: تصميم Premium/Aurora، صورة البروفايل، 3D cards، بحث، تصنيفات، مفضلة، مشاركة، تفاصيل، معرض صور، عداد تحميل، PWA، Dark/Light، Scroll reveal، responsive، localStorage، ومعالجة أخطاء التحميل.
