@@ -56,9 +56,47 @@ footer{padding:35px 0 70px;border-top:1px solid var(--line);color:var(--muted);t
 @media(max-width:760px){.hero{grid-template-columns:1fr;padding-top:45px;min-height:auto}.hero-visual{order:-1}.profile-wrap{width:min(280px,68vw)}.hero-copy{text-align:center}.hero p{margin-inline:auto}.hero-actions{justify-content:center}.grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(3,1fr)}.stats .stat{padding:13px 7px}.stat b{font-size:23px}.toolbar{align-items:stretch}.tool-group{width:100%}.select{flex:1}.bottom-nav{display:grid}footer{padding-bottom:95px}.install{bottom:75px}.sheet{max-height:88vh;border-radius:26px 26px 16px 16px}.shots img{height:190px;width:128px}.brand span{font-size:13px}.brand small{font-size:9px}.live-pill{display:none}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 html.midnight{--bg:#050916;--panel:rgba(12,20,40,.78);--panel2:rgba(100,150,255,.07);--gold:#7eb6ff;--gold2:#d8e9ff}html.crimson{--bg:#0b0507;--panel:rgba(30,10,16,.78);--panel2:rgba(255,70,100,.06);--gold:#ff6680;--gold2:#ffd1d9}
+
+/* Cinematic 10-second intro */
+#introScreen{position:fixed;inset:0;z-index:9999;background:#050507;overflow:hidden;display:grid;place-items:center;transition:opacity .9s cubic-bezier(.2,.75,.2,1),visibility .9s}
+#introScreen.hide{opacity:0;visibility:hidden;pointer-events:none}
+.intro-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#050507}
+.intro-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.24),rgba(0,0,0,.10) 45%,rgba(0,0,0,.58)),radial-gradient(circle at 50% 42%,transparent 15%,rgba(0,0,0,.32) 100%);pointer-events:none}
+.intro-ui{position:relative;z-index:2;width:min(92%,720px);height:100%;display:flex;flex-direction:column;justify-content:space-between;align-items:center;padding:24px 0 28px;color:#fff;text-align:center}
+.intro-brand{margin-top:clamp(28px,7vh,70px);padding:9px 15px;border:1px solid rgba(242,198,109,.38);background:rgba(10,10,14,.42);backdrop-filter:blur(15px);border-radius:999px;box-shadow:0 10px 35px rgba(0,0,0,.28);font-weight:900;font-size:clamp(11px,2vw,14px);letter-spacing:.2px}
+.intro-brand b{color:#f2c66d}
+.intro-bottom{width:min(92%,520px);display:grid;gap:13px;justify-items:center}
+.intro-count{width:72px;height:72px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(242,198,109,.7);background:rgba(5,5,8,.58);box-shadow:0 0 45px rgba(242,198,109,.2),inset 0 0 24px rgba(242,198,109,.08);font-size:24px;font-weight:900;color:#fff}
+.intro-count small{display:block;font-size:9px;color:#d9d9df;margin-top:-4px}
+.intro-progress{width:100%;height:4px;border-radius:99px;background:rgba(255,255,255,.16);overflow:hidden;box-shadow:0 0 20px rgba(242,198,109,.12)}
+.intro-progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,#f2c66d,#fff0b5,#f2c66d);box-shadow:0 0 18px rgba(242,198,109,.7);transition:width 1s linear}
+.intro-hint{font-size:11px;color:rgba(255,255,255,.78)}
+.intro-skip{position:absolute;top:22px;left:22px;z-index:3;border:1px solid rgba(255,255,255,.22);background:rgba(5,5,8,.42);color:#fff;padding:10px 14px;border-radius:999px;backdrop-filter:blur(14px);font-size:11px;font-weight:900;transition:.25s}
+.intro-skip:hover{transform:translateY(-2px);border-color:rgba(242,198,109,.6);color:#fff0b5}
+@media(max-width:560px){.intro-skip{top:14px;left:14px}.intro-ui{padding-bottom:22px}.intro-brand{margin-top:72px}.intro-count{width:64px;height:64px;font-size:21px}.intro-bottom{gap:11px}}
+@media(prefers-reduced-motion:reduce){#introScreen{transition:none}.intro-progress span{transition:none}}
+
 </style>
 </head>
 <body>
+
+<!-- Cinematic 10-second intro -->
+<div id="introScreen" role="dialog" aria-label="مقدمة المتجر">
+  <video class="intro-video" id="introVideo" autoplay muted playsinline preload="auto" poster="images/profile.png">
+    <source src="videos/intro.mp4" type="video/mp4">
+  </video>
+  <div class="intro-shade"></div>
+  <button class="intro-skip" id="introSkip" type="button">تخطي المقدمة ⏭</button>
+  <div class="intro-ui">
+    <div class="intro-brand">✨ <b>متجر أبو الأكبر الجيسي</b> · Premium App Store</div>
+    <div class="intro-bottom">
+      <div class="intro-count"><span id="introSeconds">10<small>ثواني</small></span></div>
+      <div class="intro-progress"><span id="introProgress"></span></div>
+      <div class="intro-hint">سيتم الدخول إلى المتجر تلقائيًا</div>
+    </div>
+  </div>
+</div>
+
 <div class="bg"><div class="orb a"></div><div class="orb b"></div><div class="orb c"></div><div class="grain"></div></div>
 
 <header class="topbar">
@@ -160,6 +198,29 @@ html.midnight{--bg:#050916;--panel:rgba(12,20,40,.78);--panel2:rgba(100,150,255,
 <nav class="bottom-nav"><button data-nav="home" class="active"><span>⌂</span>الرئيسية</button><button data-nav="apps"><span>▦</span>التطبيقات</button><button data-nav="fav"><span>♥</span>المفضلة</button><button data-nav="theme"><span>◐</span>المظهر</button></nav>
 
 <script>
+
+// 10-second cinematic intro
+(function(){
+ const screen=$("#introScreen"), video=$("#introVideo"), skip=$("#introSkip"), seconds=$("#introSeconds"), progress=$("#introProgress");
+ let done=false, started=Date.now(), timer;
+ document.body.style.overflow="hidden";
+ const finish=()=>{
+   if(done)return; done=true; clearInterval(timer);
+   document.body.style.overflow=""; screen.classList.add("hide");
+   setTimeout(()=>screen.remove(),950);
+ };
+ const tick=()=>{
+   const elapsed=Math.min(10000,Date.now()-started), remain=Math.max(0,Math.ceil((10000-elapsed)/1000));
+   seconds.innerHTML=remain+'<small>ثواني</small>'; progress.style.width=(elapsed/10000*100)+"%";
+   if(elapsed>=10000)finish();
+ };
+ const begin=()=>{started=Date.now();timer=setInterval(tick,100);tick();video.play().catch(()=>{});};
+ skip.addEventListener("click",finish);
+ video.addEventListener("ended",()=>setTimeout(finish,80));
+ if(video.readyState>=2)begin();else video.addEventListener("loadeddata",begin,{once:true});
+ setTimeout(()=>{if(!done && !timer)begin()},900);
+})();
+
 const $=s=>document.querySelector(s);
 let apps=[],activeCat="الكل",deferredPrompt=null,currentDownload=null,sortMode="featured";
 const favs=()=>JSON.parse(localStorage.getItem("abuFavs")||"[]");
