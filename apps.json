@@ -45,27 +45,6 @@
       ],
       "mediafire": "https://www.mediafire.com/file/z8i7wwya3m5pmwk/%255BRoot-Device.com%255D_MN-TikTok_v46.2.3_Fixed.apk/file",
       "mega": ""
-    },
-    {
-      "id": "app-3",
-      "name": "تطبيق 3",
-      "description": "اكتب هنا وصفاً كاملاً للتطبيق: ما وظيفته، ولماذا يستخدمه الناس، وأهم ما يميزه عن غيره.",
-      "icon": "images/app-3.png",
-      "screenshots": [
-        "images/app-3-shot-1.png",
-        "images/app-3-shot-2.png"
-      ],
-      "size": "00 MB",
-      "version": "1.0.0",
-      "rating": 4.9,
-      "category": "تواصل",
-      "features": [
-        "الميزة الأولى",
-        "الميزة الثانية",
-        "الميزة الثالثة"
-      ],
-      "mediafire": "",
-      "mega": ""
     }
   ]
 }

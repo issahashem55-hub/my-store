@@ -1,4 +1,4 @@
-const CACHE="abu-akbar-premium-v3";
+const CACHE="abu-akbar-premium-v4";
 const CORE=["./","./index.html","./apps.json","./manifest.json","./images/app-icon-192.png","./images/app-icon-512.png","./images/profile.png"];
 self.addEventListener("install",e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting())));
 self.addEventListener("activate",e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
